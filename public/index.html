@@ -1,0 +1,52 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Aporia Nous: Try a simulated AI phone agent</title><link rel="icon" href="logo.png">
+<style>
+*{box-sizing:border-box;margin:0}body{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:#0b1230;color:#e8ecfb;line-height:1.5}
+.w{max-width:960px;margin:0 auto;padding:16px}header{display:flex;align-items:center;gap:10px;padding:12px 0}header img{height:40px}
+h1{font-size:1.7rem;margin:12px 0 6px}h2{font-size:1.15rem;margin:22px 0 8px;color:#b8c2ff}.muted{color:#9aa4cc;font-size:.92rem}
+.badge{display:inline-block;background:#3b3fd8;padding:3px 10px;border-radius:99px;font-size:.8rem;font-weight:700}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:8px}
+.opt{background:#141d47;border:1.5px solid #26307a;color:#e8ecfb;padding:11px;border-radius:12px;cursor:pointer;font-size:.95rem;text-align:left}
+.opt.on{border-color:#7c83ff;background:#232c78}.card{background:#121a42;border:1px solid #26307a;border-radius:16px;padding:16px;margin-top:10px}
+#chat{height:340px;overflow:auto;display:flex;flex-direction:column;gap:8px}.m{max-width:85%;padding:9px 12px;border-radius:14px}
+.a{background:#2a3290;align-self:flex-start}.c{background:#2e3a55;align-self:flex-end}.n{align-self:center;font-size:.8rem;color:#9aa4cc;font-style:italic}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}.chip{background:#1b2560;border:1px solid #4a52c8;color:#fff;border-radius:99px;padding:8px 12px;cursor:pointer}
+.btn{background:#5b61f0;color:#fff;border:0;border-radius:12px;padding:13px 18px;font-weight:700;font-size:1rem;cursor:pointer}.btn.g{background:#1b2560}
+.tiers{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}.tier.on{outline:2px solid #7c83ff}
+form{display:grid;gap:9px}label{font-size:.88rem;color:#c5ccf2}input,select,textarea{width:100%;padding:10px;border-radius:10px;border:1px solid #34408f;background:#0e1538;color:#fff;font:inherit}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:9px}@media(max-width:560px){.two{grid-template-columns:1fr}h1{font-size:1.4rem}}
+footer{margin:30px 0 10px;font-size:.82rem;color:#8a93bf}.ok{background:#12452f;border:1px solid #2f9e6a;padding:14px;border-radius:12px}
+</style></head><body><div class="w">
+<header><img src="logo.png" alt="Aporia Nous logo"><b>Aporia Nous</b><span class="muted">(Ah-PORE-ee-ah NOOSE)</span></header>
+<span class="badge">SIMULATED DEMO</span>
+<h1>Hear how an AI phone agent would answer your business</h1>
+<p class="muted">Pick your industry and the job you want done. Everything below is a pre-written, simulated conversation that runs in your browser. No real calls are made.</p>
+<h2>1. Your industry</h2><div class="grid" id="ind"></div>
+<h2>2. What the agent should do</h2><div class="grid" id="typ"></div>
+<h2>3. Voice</h2><div class="grid" id="voi"></div>
+<p class="muted" style="margin-top:6px">Voice playback uses your device's built-in speech voices, so it may sound different on each phone or computer.</p>
+<div id="demo" class="card" hidden>
+ <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap"><b id="dt"></b><span>
+ <button class="btn g" id="play">▶ Play sample call</button> <button class="btn g" id="stop">■ Stop</button></span></div>
+ <p class="muted" style="margin:6px 0">Simulated chat: tap a reply to act as the caller.</p>
+ <div id="chat"></div><div class="chips" id="chips"></div>
+</div>
+<div id="customBox" class="card" hidden><b>Custom agent</b><p class="muted">Not listed? Tell us what you need and Ali, our agent builder, will reach out personally.</p></div>
+<h2>Plans</h2><div class="tiers" id="tiers"></div>
+<p style="margin-top:8px"><b>Setup from $497</b> (one-time). Standard voice included.</p>
+<div class="card"><b>Add-ons</b><ul style="margin:6px 0 0 18px"><li>Spanish: $99/mo</li><li>Extra location: $199/mo</li><li>Missed-call text-back + reviews: $149/mo</li><li>Premium voice (ElevenLabs): add-on, ask for pricing</li></ul></div>
+<h2 id="bk">Book a virtual demo</h2>
+<p class="muted">We build a demo tailored to your business before the call, so please tell us a bit about it.</p>
+<div class="card"><form id="f">
+ <input type="hidden" name="kind" id="kind" value="demo"><input name="hp" style="display:none" tabindex="-1" autocomplete="off">
+ <div class="two"><div><label>Business name *</label><input name="business" required></div><div><label>Industry *</label><input name="industry" id="fi" required></div></div>
+ <div><label>What do you want the agent to do? *</label><textarea name="want" id="fw" rows="2" required></textarea></div>
+ <div><label>Biggest call problem right now *</label><select name="pain" required><option value="">Choose one</option><option>Missed calls</option><option>After-hours calls</option><option>Booking appointments</option><option>Too many repeat questions</option><option>Following up with leads</option><option>Spanish-speaking callers</option><option>Other</option></select></div>
+ <div><label>Preferred demo date and time (Central Time) *</label><input name="when" type="datetime-local" required></div>
+ <div class="two"><div><label>Your name *</label><input name="name" required></div><div><label>Email or phone to reach you *</label><input name="contact" required></div></div>
+ <div class="two"><div><label>Website</label><input name="website"></div><div><label>Business phone</label><input name="phone"></div></div>
+ <div class="two"><div><label>Booking tool you use</label><input name="booking" placeholder="e.g. Calendly, ServiceTitan"></div><div><label>Calls per week</label><input name="volume"></div></div>
+ <input type="hidden" name="agentType" id="fa"><input type="hidden" name="voice" id="fv">
+ <button class="btn" id="sub">Request my demo</button><div id="msg"></div></form></div>
+<footer>Questions: <a href="mailto:demo@aporianous.com">demo@aporianous.com</a> · <a href="mailto:demo@aporianous.com">demo@aporianous.com</a> · <a href="mailto:demo@aporianous.com">demo@aporianous.com</a><br>Agents built by Aporia Nous and powered by the Votel platform. This page is a simulated demo; no calls are placed and no AI is run per visit.</footer>
+</div><script src="app.js"></script></body></html>
