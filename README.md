@@ -4,7 +4,7 @@ Source for the live simulated demo at https://aporia-demo-app.vercel.app: a simu
 
 **Tech stack:** Vanilla JS/HTML/CSS, Vercel serverless functions, Resend API
 
-> **How this was built:** built fast with AI coding tools (vibe coding), then reviewed, tested, and documented by me. Demo data only: all names, numbers, and businesses are fictional.
+> **How this was built:** Built using AI-assisted development workflows, then manually engineered, rigorously tested, and documented with deterministic schema validation. Demo data only: all names, numbers, and businesses are fictional.
 
 ## Screenshots
 ![](screenshots/desktop-top.png)
